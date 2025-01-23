@@ -15,6 +15,9 @@ export function Home() {
         navigate(`/detail/${input}`)
     }
 
+    function handleGetMore() {
+        alert("Funcionando")
+    }
 
     return (
         <main className={styles.container}>
@@ -71,7 +74,7 @@ export function Home() {
                 </tbody>
             </table>
 
-            <button className={styles.buttonMore}>
+            <button className={styles.buttonMore} onClick={handleGetMore}>
                 Carregar mais
             </button>
         </main>
