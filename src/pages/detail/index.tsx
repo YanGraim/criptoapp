@@ -17,7 +17,8 @@ type DataProps = ResponseData | ErrorData
 export function Detail() {
     const { cripto } = useParams();
     const navigate = useNavigate();
-    const [coin, setCoin] = useState<CoinProps>()
+    const [coin, setCoin] = useState<CoinProps>();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function getCoin() {
@@ -49,6 +50,7 @@ export function Detail() {
                     }
 
                     setCoin(resultData);
+                    setLoading(false);
                 })
             } catch (error) {
                 console.log(error);
@@ -58,9 +60,18 @@ export function Detail() {
         getCoin();
     }, [cripto, navigate])
 
+    if(loading) {
+        return (
+            <div>
+                <h4>Carregando detalhes...</h4>
+            </div>
+        )
+    }
+
     return (
         <div>
             <h1>Pagina detalhe da moeda {cripto}</h1>
+           
         </div>
     )
 }
