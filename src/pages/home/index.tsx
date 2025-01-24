@@ -75,7 +75,7 @@ export function Home() {
         e.preventDefault();
 
         if(input === "") return;
-        navigate(`/detail/${input}`)
+        navigate(`/detail/${input.toLowerCase()}`)
     }
 
     function handleGetMore() {
