@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { CoinProps } from "../home";
 import styles from "./detail.module.css";
 
@@ -71,8 +71,8 @@ export function Detail() {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.centers}>{coin?.name}</h1>
-            <h1 className={styles.centers}>{coin?.symbol}</h1>
+            <h1 className={styles.center}>{coin?.name}</h1>
+            <h1 className={styles.center}>{coin?.symbol}</h1>
             <section className={styles.content}>
                 <img 
                     src={`https://assets.coincap.io/assets/icons/${coin?.symbol.toLowerCase()}@2x.png`}
@@ -88,8 +88,11 @@ export function Detail() {
                     <strong>Volume: </strong>{coin?.formatedVolume}
                 </a>
                 <a>
-                    <strong>Mudança 24h: </strong><span className={Number(coin?.changePercent24Hr) > 0 ? styles.profit : styles.loss}>{Number(coin?.changePercent24Hr).toFixed(2)}</span>
+                    <strong>Mudança 24h: </strong><span className={Number(coin?.changePercent24Hr) > 0 ? styles.Profit : styles.Loss}>{Number(coin?.changePercent24Hr).toFixed(2)}</span>
                 </a>
+                <Link to={"/"}>
+                    <button className={styles.button}>Voltar</button>
+                </Link>
             </section>
            
         </div>
